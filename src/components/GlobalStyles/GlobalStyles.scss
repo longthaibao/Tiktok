@@ -1,0 +1,15 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+:root{
+--primary:rgb(255, 59, 92);
+}
+html{
+
+    font-size: 62.5%;
+}
+body{
+    font-family: 'ibm-plex-sans','sans-serif';
+    line-height: 1.5;
+    font-size: 1.6rem;
+    text-rendering: optimizespeed;
+}

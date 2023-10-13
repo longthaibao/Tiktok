@@ -4,8 +4,10 @@
 --primary:rgb(255, 59, 92);
 }
 html{
-
     font-size: 62.5%;
+}
+*{
+    box-sizing: border-box;
 }
 body{
     font-family: 'ibm-plex-sans','sans-serif';

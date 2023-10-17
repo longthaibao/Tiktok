@@ -1,27 +1,34 @@
-@import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
-:root{
---primary:rgb(255, 59, 92);
-//Default Layout
---default-layout-header-height:60px;
---default-layout-width:1150px;
---text-color:#333;
+@import "normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
+:root {
+  --primary: rgba(254, 44, 85, 1);
+  --white: rgba(255, 255, 255, 1);
+  //Default Layout
+  --default-layout-header-height: 60px;
+  --default-layout-width: 1150px;
+  --text-color: #333;
 }
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-body{
-    font-family: 'ibm-plex-sans','sans-serif';
-    line-height: 1.5;
-    font-size: 1.6rem;
-    text-rendering: optimizespeed;
+body {
+  font-family: "ibm-plex-sans", "sans-serif";
+  line-height: 1.5;
+  font-size: 1.6rem;
+  text-rendering: optimizespeed;
 }
-a[href]{
-    color: var(--text-color);
-    text-decoration: none;
+a[href] {
+  color: var(--text-color);
+  text-decoration: none;
+}
+input,
+button,
+[tabindex] {
+  border: none;
+  outline: none;
 }

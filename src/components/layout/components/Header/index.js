@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleXmark,
   faMagnifyingGlass,
+  faSignIn,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react/headless";
@@ -23,7 +24,7 @@ function Header() {
           <img src={images.logo} alt="Tiktok" />
         </div>
         <Tippy
-          visible={searchResult.length > 0}
+          // visible={searchResult.length > 0}
           interactive={true}
           render={(attrs) => (
             <div className={cx("search-result")} tabIndex="-1" {...attrs}>
@@ -48,7 +49,12 @@ function Header() {
             </button>
           </div>
         </Tippy>
-        <div className={cx("action")}></div>
+        <div className={cx("action")}>
+          <Button text>Upload</Button>
+          <Button primary icon={<FontAwesomeIcon icon={faSignIn} />}>
+            Login
+          </Button>
+        </div>
       </div>
     </header>
   );

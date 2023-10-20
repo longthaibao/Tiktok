@@ -6,14 +6,34 @@ import AcountItem from "~/components/AccountItem";
 import Button from "~/components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faCircleQuestion,
   faCircleXmark,
+  faEarthEurope,
+  faEllipsisVertical,
+  faKeyboard,
   faMagnifyingGlass,
   faSignIn,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react/headless";
 import { useState } from "react";
+import Menu from "~/components/Popper/Menu";
 const cx = classNames.bind(styles);
+const MENU_ITEMS = [
+  {
+    icon: <FontAwesomeIcon icon={faEarthEurope}></FontAwesomeIcon>,
+    title: "English",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCircleQuestion}></FontAwesomeIcon>,
+    title: "Feedback and help",
+    to: "/feedback",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faKeyboard}></FontAwesomeIcon>,
+    title: "Keyboard shortcut",
+  },
+];
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
 
@@ -24,7 +44,7 @@ function Header() {
           <img src={images.logo} alt="Tiktok" />
         </div>
         <Tippy
-          // visible={searchResult.length > 0}
+          visible={searchResult.length > 0}
           interactive={true}
           render={(attrs) => (
             <div className={cx("search-result")} tabIndex="-1" {...attrs}>
@@ -54,6 +74,11 @@ function Header() {
           <Button primary icon={<FontAwesomeIcon icon={faSignIn} />}>
             Login
           </Button>
+          <Menu items={MENU_ITEMS}>
+            <button className={cx("more-btn")}>
+              <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
+            </button>
+          </Menu>
         </div>
       </div>
     </header>

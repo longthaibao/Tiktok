@@ -4,20 +4,27 @@ import images from "~/assets/images";
 import { Wrapper as PoperWrapper } from "~/components/Popper";
 import AcountItem from "~/components/AccountItem";
 import Button from "~/components/Button";
+import "tippy.js/dist/tippy.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleQuestion,
   faCircleXmark,
+  faCloudArrowUp,
   faEarthEurope,
   faEllipsisVertical,
+  faGear,
   faKeyboard,
   faMagnifyingGlass,
-  faSignIn,
+  faMessage,
+  faSignOut,
   faSpinner,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import Tippy from "@tippyjs/react/headless";
-import { useState } from "react";
+import Tippy from "@tippyjs/react";
+import HeadlessTippy from "@tippyjs/react/headless";
+import { useEffect, useState } from "react";
 import Menu from "~/components/Popper/Menu";
+import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
   {
@@ -49,8 +56,37 @@ const MENU_ITEMS = [
     title: "Keyboard shortcut",
   },
 ];
+const userMenu = [
+  {
+    icon: <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>,
+    title: "View Profile",
+    to: "/profile",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faTiktok}></FontAwesomeIcon>,
+    title: "Get coins",
+    to: "/coins",
+  },
+  {
+    icon: <FontAwesomeIcon icon={faGear}></FontAwesomeIcon>,
+    title: "Settings",
+    to: "/settings",
+  },
+  ...MENU_ITEMS,
+  {
+    icon: <FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon>,
+    title: "Log out",
+    to: "/",
+    separate: true,
+  },
+];
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
+  useEffect(() => {
+    setTimeout(() => {
+      setSearchResult([]);
+    }, 0);
+  }, []);
   const handleMenuChange = (menuItem) => {
     switch (menuItem.type) {
       case "Language":
@@ -59,14 +95,14 @@ function Header() {
         break;
     }
   };
+  const currentUser = true;
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
         <div className={cx("logo")}>
           <img src={images.logo} alt="Tiktok" />
         </div>
-        <Tippy
-          visible={searchResult.length > 0}
+        <HeadlessTippy
           interactive={true}
           render={(attrs) => (
             <div className={cx("search-result")} tabIndex="-1" {...attrs}>
@@ -90,16 +126,38 @@ function Header() {
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </div>
-        </Tippy>
+        </HeadlessTippy>
+
         <div className={cx("action")}>
-          <Button text>Upload</Button>
-          <Button primary icon={<FontAwesomeIcon icon={faSignIn} />}>
-            Login
-          </Button>
-          <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-            <button className={cx("more-btn")}>
-              <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
-            </button>
+          {currentUser ? (
+            <>
+              <Tippy delay={[0, 200]} content="Upload" placement="bottom">
+                <button className={cx("action-btn")}>
+                  <FontAwesomeIcon icon={faCloudArrowUp} />
+                </button>
+              </Tippy>
+            </>
+          ) : (
+            <>
+              <Button text>Upload</Button>
+              <Button primary>Login</Button>
+            </>
+          )}
+          <Menu
+            items={currentUser ? userMenu : MENU_ITEMS}
+            onChange={handleMenuChange}
+          >
+            {currentUser ? (
+              <img
+                className={cx("user-avatar")}
+                alt="Dao le phuong hoa"
+                src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/d7d2aa84b494e467d96d0ba783e47f0d.jpeg?x-expires=1697997600&x-signature=kcVWLOCrKA9WsUUacSwIxhJR8JM%3D"
+              ></img>
+            ) : (
+              <button className={cx("more-btn")}>
+                <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
+              </button>
+            )}
           </Menu>
         </div>
       </div>

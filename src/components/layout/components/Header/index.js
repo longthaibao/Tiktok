@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleQuestion,
   faCircleXmark,
-  faCloudArrowUp,
   faEarthEurope,
   faEllipsisVertical,
   faGear,
@@ -25,6 +24,8 @@ import HeadlessTippy from "@tippyjs/react/headless";
 import { useEffect, useState } from "react";
 import Menu from "~/components/Popper/Menu";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";
+import { UploadIcon } from "~/components/Icons";
+import Image from "../Image";
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
   {
@@ -133,7 +134,7 @@ function Header() {
             <>
               <Tippy delay={[0, 200]} content="Upload" placement="bottom">
                 <button className={cx("action-btn")}>
-                  <FontAwesomeIcon icon={faCloudArrowUp} />
+                  <UploadIcon />
                 </button>
               </Tippy>
             </>
@@ -148,11 +149,12 @@ function Header() {
             onChange={handleMenuChange}
           >
             {currentUser ? (
-              <img
+              <Image
                 className={cx("user-avatar")}
                 alt="Dao le phuong hoa"
+                fallback="https://codelearn.io/Upload/Blog/react-js-co-ban-phan-1-63738082145.3856.jpg"
                 src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/d7d2aa84b494e467d96d0ba783e47f0d.jpeg?x-expires=1697997600&x-signature=kcVWLOCrKA9WsUUacSwIxhJR8JM%3D"
-              ></img>
+              />
             ) : (
               <button className={cx("more-btn")}>
                 <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>

@@ -3,6 +3,7 @@
   --primary: rgba(254, 44, 85, 1);
   --white: rgba(255, 255, 255, 1);
   //Default Layout
+  --font-family: "ProximaNova", "sans-serif";
   --default-layout-header-height: 60px;
   --default-layout-width: 1150px;
   --default-layout-horizontal-spacer: 24px;
@@ -17,7 +18,7 @@ html {
   padding: 0;
 }
 body {
-  font-family: "ProximaNova", "sans-serif";
+  font-family: var(--font-family);
   line-height: 1.5;
   font-size: 1.6rem;
   text-rendering: optimizespeed;

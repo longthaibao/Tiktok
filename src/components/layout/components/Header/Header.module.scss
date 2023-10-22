@@ -16,73 +16,6 @@
   padding: 0 var(--default-layout-horizontal-spacer);
   justify-content: space-between;
 }
-.search,
-.search-result {
-  width: 500px;
-}
-.search {
-  position: relative;
-  height: var(--search-height);
-  background-color: rgba(22, 24, 35, 0.06);
-  border-radius: 92px;
-  padding-left: 16px;
-  display: flex;
-  border: 1px solid transparent;
-  input {
-    border: none;
-    font-size: 1.6rem;
-    color: rgb(22, 24, 35);
-    outline: none;
-    height: 100%;
-    background-color: transparent;
-    flex: 1;
-    caret-color: red;
-  }
-  input:not(:placeholder-shown) ~ .search-btn {
-    color: rgba(22, 24, 35, 0.75);
-  }
-
-  &:focus-within {
-    border-color: rgba(22, 24, 35, 0.2);
-  }
-}
-.clear,
-.loading {
-  border: none;
-  outline: none;
-  position: absolute;
-  top: 50%;
-  right: calc(var(--search-button-width) + 16px);
-  transform: translateY(-50%);
-  background-color: transparent;
-}
-
-.search-btn {
-  width: var(--search-button-width);
-  height: 100%;
-  border: none;
-  outline: none;
-  border-top-right-radius: 92px;
-  border-bottom-right-radius: 92px;
-  font-size: 1.8rem;
-  border-left: 1px solid;
-  color: rgba(22, 24, 35, 0.34);
-  &:hover {
-    background-color: rgba(22, 24, 25, 0.03);
-    cursor: pointer;
-  }
-  &:active {
-    background-color: rgba(22, 24, 35, 0.06);
-  }
-}
-.search-title {
-  height: 30px;
-  padding: 6px 12px;
-  font-size: 1.4rem;
-  line-height: 18px;
-  font-weight: 600;
-  color: rgba(22, 24, 35, 0.5);
-}
 //Actions
 .action {
   display: flex;
@@ -95,12 +28,27 @@
   background-color: transparent;
   cursor: pointer;
 }
-.action .action-btn {
+.action-btn {
+  position: relative;
   background-color: transparent;
   color: #161823;
   font-size: 2.2rem;
-  padding: 4px 16px;
+  padding: 4px 10px;
   cursor: pointer;
+}
+.badge {
+  position: absolute;
+  top: -3px;
+  right: 0px;
+  padding: 0px 6px;
+  height: 2rem;
+  line-height: 2rem;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--white);
+  font-family: var(--font-family);
+  background-color: var(--primary);
 }
 .user-avatar {
   width: 32px;

@@ -15,11 +15,12 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react";
-import { useEffect, useState } from "react";
 import Menu from "~/components/Popper/Menu";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 import { UploadIcon, MessageIcon, BoxMessageIcon } from "~/components/Icons";
 import Image from "../Image";
+import { Link } from "react-router-dom";
+import routesConfig from "~/configs/routes";
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
   {
@@ -71,7 +72,7 @@ const userMenu = [
   {
     icon: <FontAwesomeIcon icon={faSignOut}></FontAwesomeIcon>,
     title: "Log out",
-    to: "/",
+    to: "/logout",
     separate: true,
   },
 ];
@@ -88,9 +89,11 @@ function Header() {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <div className={cx("logo")}>
-          <img src={images.logo} alt="Tiktok" />
-        </div>
+        <Link to={routesConfig.home} className={cx("logo_link")}>
+          <div className={cx("logo")}>
+            <img src={images.logo} alt="Tiktok" />
+          </div>
+        </Link>
         <Search />
 
         <div className={cx("action")}>

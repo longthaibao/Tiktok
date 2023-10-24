@@ -16,6 +16,9 @@
   padding: 0 var(--default-layout-horizontal-spacer);
   justify-content: space-between;
 }
+.logo_link {
+  display: flex;
+}
 //Actions
 .action {
   display: flex;

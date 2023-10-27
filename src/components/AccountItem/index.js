@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./AcountItem.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import Image from "../layout/components/Image";
+import Image from "../../layouts/components/Image";
 import { Link } from "react-router-dom";
 const cx = classNames.bind(styles);
 function AcountItem({ data }) {

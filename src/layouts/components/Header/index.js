@@ -20,7 +20,7 @@ import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 import { UploadIcon, MessageIcon, BoxMessageIcon } from "~/components/Icons";
 import Image from "../Image";
 import { Link } from "react-router-dom";
-import routesConfig from "~/configs/routes";
+import configs from "~/configs";
 const cx = classNames.bind(styles);
 const MENU_ITEMS = [
   {
@@ -89,7 +89,7 @@ function Header() {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <Link to={routesConfig.home} className={cx("logo_link")}>
+        <Link to={configs.routes.home} className={cx("logo_link")}>
           <div className={cx("logo")}>
             <img src={images.logo} alt="Tiktok" />
           </div>

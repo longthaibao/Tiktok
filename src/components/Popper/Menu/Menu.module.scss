@@ -1,18 +1,24 @@
 .menu-list {
   width: 224px;
+
   .menu-item {
     margin-left: 0;
-    width: 100%;
-    justify-content: flex-start;
-    font-weight: 500;
-    line-height: 1.8rem;
-    &:hover {
-      background-color: rgba(22, 24, 35, 0.03);
-    }
-    &.separate {
-      border-top: 1px solid rgba(22, 24, 35, 0.12);
-    }
   }
+}
+.menu-item {
+  width: 100%;
+  justify-content: flex-start;
+  font-weight: 500;
+  line-height: 1.8rem;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+  &.separate {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+  }
+}
+.menu-body {
+  overflow-y: auto;
 }
 .menu-popper {
   padding-bottom: 8px;
@@ -22,6 +28,7 @@
   position: relative;
   height: 50px;
   margin-top: -8px;
+  flex-shrink: 0;
 }
 
 .back-btn {

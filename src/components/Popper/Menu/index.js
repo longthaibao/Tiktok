@@ -5,6 +5,7 @@ import { Wrapper as PoperWrapper } from "~/components/Popper";
 import MenuItem from "./MenuItem";
 import Header from "./Header";
 import { useState } from "react";
+import PropTypes from "prop-types";
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
 function Menu({
@@ -45,7 +46,7 @@ function Menu({
           <PoperWrapper className={cx("menu-popper")}>
             {history.length > 1 && (
               <Header
-                title="Language"
+                title={current.title}
                 onBack={() => {
                   setHistory((pre) => pre.slice(0, pre.length - 1));
                 }}
@@ -63,5 +64,10 @@ function Menu({
     </Tippy>
   );
 }
-
+Menu.propTypes = {
+  children: PropTypes.node.isRequired,
+  items: PropTypes.array,
+  hideOnClick: PropTypes.bool,
+  onChange: PropTypes.func,
+};
 export default Menu;

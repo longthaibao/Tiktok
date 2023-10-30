@@ -1,10 +1,26 @@
+import Menu from "./Menu/Menu";
 import styles from "./Sidebar.module.scss";
 import classNames from "classnames/bind";
+import configs from "~/configs";
+import { MenuItem } from "./Menu";
+import { HomeIcon, LiveIcon, GroupUserIcon } from "~/components/Icons";
 const cx = classNames.bind(styles);
 function Sidebar() {
   return (
     <aside className={cx("wrapper")}>
-      <h2>Side bar</h2>
+      <Menu>
+        <MenuItem
+          title="For you"
+          to={configs.routes.home}
+          icon={<HomeIcon />}
+        />
+        <MenuItem
+          title="Following"
+          to={configs.routes.following}
+          icon={<GroupUserIcon />}
+        />
+        <MenuItem title="Live" to={configs.routes.live} icon={<LiveIcon />} />
+      </Menu>
     </aside>
   );
 }

@@ -4,6 +4,7 @@ import classNames from "classnames/bind";
 import configs from "~/configs";
 import { MenuItem } from "./Menu";
 import { HomeIcon, LiveIcon, GroupUserIcon } from "~/components/Icons";
+import SuggestedAccounts from "~/components/SuggestedAccounts";
 const cx = classNames.bind(styles);
 function Sidebar() {
   return (
@@ -21,6 +22,8 @@ function Sidebar() {
         />
         <MenuItem title="Live" to={configs.routes.live} icon={<LiveIcon />} />
       </Menu>
+      <SuggestedAccounts label="Suggested Accounts" />
+      <SuggestedAccounts label="Following Accounts" />
     </aside>
   );
 }
